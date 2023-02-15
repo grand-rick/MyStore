@@ -1,0 +1,11 @@
+<div class="product-item-detail">
+    <img src={{product.url}} alt={{product.name}} />
+    <p>
+        {{product.name}} <br />
+        ${{product.price}} <br />
+        {{product.description}} <br />
+        <select name="items" id="items">
+            <option *ngFor="let item of items" value={{item}}>{{item}}</option>
+        </select>
+    </p>
+</div>
