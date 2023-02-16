@@ -4,7 +4,10 @@
     </a>
     <p>{{product.name}}</p>
     <p>${{product.price}}</p>
-    <select name="items" id="items">
-        <option *ngFor="let item of items" value={{item}}>{{item}}</option>
-    </select>
+    <form (ngSubmit)="addToCart(product)">
+        <select name="items" id="items">
+            <option *ngFor="let item of items" value={{item}}>{{item}}</option>
+        </select>
+        <button type="submit" class="btn btn-primary"></button>
+    </form>
 </div>
