@@ -51,7 +51,9 @@ export class ProductsService {
   }
 
   addProductToCart(product: Product): Product[] {
-    this.cartProducts.unshift(product);
+    if (!this.cartProducts.includes(product)) {
+      this.cartProducts.unshift(product);
+    }
     return this.cartProducts;
   }
 
