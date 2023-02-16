@@ -9,7 +9,6 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class CartComponent implements OnInit {
   cartProducts: Product[] = [];
-  isCartEmpty: boolean = (this.productsService.getCartProducts().length === 0) ? true : false;
 
   constructor (private productsService: ProductsService) {}
 
@@ -19,8 +18,7 @@ export class CartComponent implements OnInit {
 
   removeCartProduct(product: Product): void {
     this.cartProducts = this.productsService.removeCartProduct(product);
-    alert(`${product.name} has been removed from cart`);
-    alert(`The cart has ${this.cartProducts.length} product remaining, isCartEmpty: ${this.isCartEmpty}`);
+    alert(`${product.name} has been removed from cart`)
   }
 
 }
