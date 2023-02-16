@@ -16,7 +16,8 @@ export class ProductsService {
       name: '',
       price: 0,
       url: '',
-      description: ''
+      description: '',
+      totalPrice: 0
     }
   }
 
@@ -30,7 +31,8 @@ export class ProductsService {
       name: '',
       price: 0,
       url: '',
-      description: ''
+      description: '',
+      totalPrice: 0
     }; //resetting the current product value
 
     this.currentProduct = selectedProduct;
@@ -43,7 +45,7 @@ export class ProductsService {
   }
 
   getNumberOfProducts(): number[] {
-    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   }
 
   getCartProducts(): Product[] {
@@ -51,15 +53,7 @@ export class ProductsService {
   }
 
   addProductToCart(product: Product): Product[] {
-    if (!this.cartProducts.includes(product)) {
-      this.cartProducts.unshift(product);
-    }
-    
-    this.cartProducts.forEach(p => {
-      if (p.name === product.name) {
-        p.totalPrice = product.totalPrice;
-      }
-    })
+    this.cartProducts.unshift(product);
     return this.cartProducts;
   }
 
