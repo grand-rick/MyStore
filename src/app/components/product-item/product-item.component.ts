@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/Product';
 import { ProductsService } from 'src/app/services/products.service';
+import { CartProduct } from 'src/app/models/CartProduct';
 
 @Component({
   selector: 'app-product-item',
@@ -9,8 +10,8 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
-
-  items: number[] = [];
+  availableProducts: number[] = [];
+  selectedProducts: number = 0;
 
   constructor (private productsService: ProductsService) {
     this.product = {
@@ -23,7 +24,7 @@ export class ProductItemComponent implements OnInit {
 }
 
   ngOnInit(): void {
-    this.items = this.productsService.getNumberOfProducts();
+    this.availableProducts = this.productsService.getNumberOfProducts();
   }
 
   // I set the current product using the ProductsService to allow sharing of data with the ProductItemDetail component
@@ -32,7 +33,11 @@ export class ProductItemComponent implements OnInit {
   }
 
   addToCart(product: Product): void {
-    this.productsService.addProductToCart(product);
+    const cartP: CartProduct = {
+      ...product,
+      totalPrice: this.selectedProducts * product.price
+    }
+    this.productsService.addProductToCart(cartP);
     alert(`${product.name} has been added to cart`);
   }
 }
