@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from 'src/app/models/Product';
+import { CartProduct } from 'src/app/models/CartProduct';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductsService {
   currentProduct: Product;
-  cartProducts: Product[] =[];
+  cartProducts: CartProduct[] =[];
 
   constructor(private http: HttpClient) { 
     this.currentProduct = {
@@ -46,18 +47,18 @@ export class ProductsService {
     return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   }
 
-  getCartProducts(): Product[] {
+  getCartProducts(): CartProduct[] {
     return this.cartProducts;
   }
 
-  addProductToCart(product: Product): Product[] {
+  addProductToCart(product: CartProduct): CartProduct[] {
     if (!this.cartProducts.includes(product)) {
       this.cartProducts.unshift(product);
     }
     return this.cartProducts;
   }
 
-  removeCartProduct(product: Product): Product[] {
+  removeCartProduct(product: CartProduct): CartProduct[] {
     this.cartProducts = this.cartProducts.filter(p => p.name != product.name);
     return this.cartProducts;
   }
