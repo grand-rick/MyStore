@@ -9,6 +9,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class CartComponent implements OnInit {
   cartProducts: Product[] = [];
+  isCartEmpty: boolean = !!this.cartProducts;
 
   constructor (private productsService: ProductsService) {}
 
