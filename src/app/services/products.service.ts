@@ -54,6 +54,12 @@ export class ProductsService {
     if (!this.cartProducts.includes(product)) {
       this.cartProducts.unshift(product);
     }
+    
+    this.cartProducts.forEach(p => {
+      if (p.name === product.name) {
+        p.totalPrice = product.totalPrice;
+      }
+    })
     return this.cartProducts;
   }
 
