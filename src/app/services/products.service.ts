@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductsService {
   currentProduct: Product;
+  cartProducts: Product[] =[];
 
   constructor(private http: HttpClient) { 
     this.currentProduct = {
@@ -43,5 +44,14 @@ export class ProductsService {
 
   getNumberOfProducts(): number[] {
     return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  }
+
+  getCartProducts(): Product[] {
+    return this.cartProducts;
+  }
+
+  addProductToCart(product: Product): Product[] {
+    this.cartProducts.unshift(product);
+    return this.cartProducts;
   }
 }
