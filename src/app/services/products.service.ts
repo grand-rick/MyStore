@@ -54,4 +54,9 @@ export class ProductsService {
     this.cartProducts.unshift(product);
     return this.cartProducts;
   }
+
+  removeCartProduct(product: Product): Product[] {
+    this.cartProducts = this.cartProducts.filter(p => p.name != product.name);
+    return this.cartProducts;
+  }
 }
