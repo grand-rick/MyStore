@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../models/Product';
+import { HttpClient } from '@angular/common/http';
+import { Product } from 'src/app/models/Product';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,7 @@ import { Product } from '../models/Product';
 export class ProductsService {
   currentProduct: Product;
 
-  constructor() { 
+  constructor(private http: HttpClient) { 
     this.currentProduct = {
       id: 0,
       name: '',
@@ -15,6 +17,10 @@ export class ProductsService {
       url: '',
       description: ''
     }
+  }
+
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>('assets/data.json');
   }
 
   setCurrentProduct(selectedProduct: Product): Product {
