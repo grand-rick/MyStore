@@ -27,8 +27,11 @@ export class ProductItemComponent implements OnInit {
   }
 
   // I set the current product using the ProductsService to allow sharing of data with the ProductItemDetail component
-  setProduct(product: Product) {
+  setProduct(product: Product): void {
     this.productsService.setCurrentProduct(product);
   }
 
+  addToCart(product: Product): void {
+    this.productsService.addProductToCart(product);
+  }
 }
