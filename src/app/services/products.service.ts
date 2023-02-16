@@ -17,7 +17,7 @@ export class ProductsService {
       price: 0,
       url: '',
       description: '',
-      totalPrice: 0
+      amount: 0
     }
   }
 
@@ -32,7 +32,7 @@ export class ProductsService {
       price: 0,
       url: '',
       description: '',
-      totalPrice: 0
+      amount: 0
     }; //resetting the current product value
 
     this.currentProduct = selectedProduct;
