@@ -26,5 +26,8 @@ export class ProductItemDetailComponent implements OnInit {
     this.items = this.productsService.getNumberOfProducts();
   }
 
-
+  addToCart(product: Product): void {
+    this.productsService.addProductToCart(product);
+    alert(`${product.name} has been added to cart`);
+  }
 }
