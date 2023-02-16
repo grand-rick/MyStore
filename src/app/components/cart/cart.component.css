@@ -3,10 +3,17 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     padding: 10px;
 }
 
+.cart-element {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 img {
-    width: 300px;
+    width: 100px;
 }
 
