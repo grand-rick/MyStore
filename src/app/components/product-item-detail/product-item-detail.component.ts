@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CartProduct } from 'src/app/models/CartProduct';
 import { Product } from 'src/app/models/Product';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -29,11 +28,8 @@ export class ProductItemDetailComponent implements OnInit {
   }
 
   addToCart(product: Product): void {
-    const cartP: CartProduct = {
-      ...product,
-      totalPrice: this.selectedProducts * product.price
-    }
-    this.productsService.addProductToCart(cartP);
+    product.totalPrice = this.selectedProducts * product.price;
+    this.productsService.addProductToCart(product);
     alert(`${product.name} has been added to cart`);
   }
 }
