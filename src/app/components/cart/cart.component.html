@@ -1,4 +1,4 @@
-<div class="cart">
+<div class="cart" *ngIf="isCartEmpty === false">
     <div *ngFor="let product of cartProducts">
         <img src={{product.url}} alt={{product.name}}> <br />
         {{product.name}} <br />
@@ -6,4 +6,8 @@
         {{product.description}} <br />
         <button class="btn btn-danger" (click)="removeCartProduct(product)">Remove</button>
     </div>
+</div>
+
+<div class="cart" *ngIf="isCartEmpty === true">
+    <h1>Cart is Empty!</h1>
 </div>
