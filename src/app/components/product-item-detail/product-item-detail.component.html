@@ -1,11 +1,12 @@
 <div class="product-item-detail">
     <img src={{product.url}} alt={{product.name}} />
-    <p>
+    <form (ngSubmit)="addToCart(product)">
         {{product.name}} <br />
         ${{product.price}} <br />
         {{product.description}} <br />
         <select name="items" id="items">
             <option *ngFor="let item of items" value={{item}}>{{item}}</option>
         </select>
-    </p>
+        <button type="submit" class="btn btn-primary" >Add to Cart</button>
+    </form>
 </div>
