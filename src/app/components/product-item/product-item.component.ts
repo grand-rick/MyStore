@@ -11,6 +11,7 @@ export class ProductItemComponent implements OnInit {
   @Input() product: Product;
   availableProducts: number[] = [];
   selectedProducts: number = 0;
+  
 
   constructor (private productsService: ProductsService) {
     this.product = {
@@ -19,7 +20,7 @@ export class ProductItemComponent implements OnInit {
       price: 0,
       url: '',
       description: '',
-      totalPrice: 0
+      amount: 0
     }
 }
 
@@ -33,8 +34,9 @@ export class ProductItemComponent implements OnInit {
   }
 
   addToCart(product: Product): void {
-    product.totalPrice = this.selectedProducts * product.price;
+    product.amount = this.selectedProducts;
     this.productsService.addProductToCart(product);
+    this.selectedProducts = 0;
     alert(`${product.name} has been added to cart`);
   }
 }

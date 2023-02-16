@@ -19,7 +19,7 @@ export class ProductItemDetailComponent implements OnInit {
       price: 0,
       url: '',
       description: '',
-      totalPrice: 0
+      amount: 0
     }
   }
 
@@ -29,7 +29,7 @@ export class ProductItemDetailComponent implements OnInit {
   }
 
   addToCart(product: Product): void {
-    product.totalPrice = this.selectedProducts * product.price;
+    product.amount = this.selectedProducts;
     this.productsService.addProductToCart(product);
     alert(`${product.name} has been added to cart`);
   }
