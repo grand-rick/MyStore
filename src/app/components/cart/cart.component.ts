@@ -9,11 +9,13 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class CartComponent implements OnInit {
   cartProducts: Product[] = [];
+  totalPrice: number = 0;
 
   constructor (private productsService: ProductsService) {}
 
   ngOnInit(): void {
     this.cartProducts = this.productsService.getCartProducts();
+    this.totalPrice = this.getTotalPrice();
   }
 
   removeCartProduct(product: Product): void {
@@ -21,4 +23,10 @@ export class CartComponent implements OnInit {
     alert(`${product.name} has been removed from cart`)
   }
 
+  getTotalPrice(): number {
+    for (let i = 0, n = this.cartProducts.length; i < n; i++) {
+      this.totalPrice += +this.cartProducts[i].amount * +this.cartProducts[i].price;
+    }
+    return this.totalPrice;
+  }
 }
