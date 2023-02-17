@@ -7,7 +7,7 @@
             {{product.description}} <br />
             Amount: <input type="number" name="amount" value={{product.amount}} /> <br />
             <button class="btn btn-danger" (click)="removeCartProduct(product)">Remove</button>
-            <button>Check out</button>
+            <a routerLink="/">Back to Product List</a>
         </form>
     </div>
     <h2>Total Price: ${{totalPrice}}</h2>
