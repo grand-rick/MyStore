@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Product } from 'src/app/models/Product';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -8,25 +9,26 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cartProducts: Product[] = [];
+  cartProducts: Product[] = this.productsService.getCartProducts();
   totalPrice: number = 0;
 
   constructor (private productsService: ProductsService) {}
 
   ngOnInit(): void {
-    this.cartProducts = this.productsService.getCartProducts();
-    this.totalPrice = this.getTotalPrice();
+    this.totalPrice = this.getTotalPrice().toFixed(2) as unknown as number;
   }
 
   removeCartProduct(product: Product): void {
     this.cartProducts = this.productsService.removeCartProduct(product);
-    alert(`${product.name} has been removed from cart`)
+    this.totalPrice = this.getTotalPrice().toFixed(2) as unknown as number;
+    alert(`${product.name} has been removed from cart`);
   }
 
   getTotalPrice(): number {
+    let tPrice: number = 0
     for (let i = 0, n = this.cartProducts.length; i < n; i++) {
-      this.totalPrice += +this.cartProducts[i].amount * +this.cartProducts[i].price;
+      tPrice += +this.cartProducts[i].amount  * +this.cartProducts[i].price;
     }
-    return this.totalPrice;
+    return tPrice;
   }
 }

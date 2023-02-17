@@ -1,14 +1,14 @@
 <div class="cart">
     <div class="cart-element" *ngFor="let product of cartProducts">
         <img src={{product.url}} alt={{product.name}}> <br />
-        <div>
+        <form>
             {{product.name}} <br />
             ${{product.price}} <br />
             {{product.description}} <br />
-            Amount: <input type="number" name="amount" value={{product.amount}}  /> <br />
+            Amount: <input type="number" name="amount" value={{product.amount}} /> <br />
             <button class="btn btn-danger" (click)="removeCartProduct(product)">Remove</button>
             <button>Check out</button>
-        </div>
+        </form>
     </div>
     <h2>Total Price: ${{totalPrice}}</h2>
 </div>
