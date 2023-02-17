@@ -53,8 +53,14 @@ export class ProductsService {
   }
 
   addProductToCart(product: Product): Product[] {
+    for (let i = 0, n = this.cartProducts.length; i < n; i++) {
+      if (this.cartProducts[i].name === product.name) {
+        this.cartProducts[i].amount += +product.amount;
+        return this.cartProducts;
+      }
+    }
     this.cartProducts.unshift(product);
-    return this.cartProducts;
+    return this.cartProducts
   }
 
   removeCartProduct(product: Product): Product[] {
