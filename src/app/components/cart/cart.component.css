@@ -1,16 +1,24 @@
 .cart {
-    display: flex;
+    display: grid;
     flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    padding: 10px;
+    text-align: center;
 }
 
-.cart-element {
+.parent1 {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+.parent2 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 5px;
 }
 
 img {
