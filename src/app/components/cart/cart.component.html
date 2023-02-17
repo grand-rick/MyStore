@@ -1,14 +1,33 @@
-<div class="cart">
-    <div class="cart-element" *ngFor="let product of cartProducts">
-        <img src={{product.url}} alt={{product.name}}> <br />
-        <form>
-            {{product.name}} <br />
-            ${{product.price}} <br />
-            {{product.description}} <br />
-            Amount: <input type="number" name="amount" value={{product.amount}} /> <br />
-            <button class="btn btn-danger" (click)="removeCartProduct(product)">Remove</button>
-            <a routerLink="/">Back to Product List</a>
-        </form>
+<form class="cart">
+    <div class="parent1">
+        <div class="cart-element" *ngFor="let product of cartProducts">
+            <img src={{product.url}} alt={{product.name}}> <br />
+            <div >
+                {{product.name}} <br />
+                ${{product.price}} <br />
+                {{product.description}} <br />
+                Amount: <input type="number" name="amount" value={{product.amount}} /> <br />
+                <button class="btn btn-danger" (click)="removeCartProduct(product)">Remove</button>
+                <a routerLink="/">Back to Product List</a>
+            </div>
+        </div>
     </div>
+    <div class="parent2">
+        <label for="fullName">
+            Full Name: <br />
+            <input type="text" name="fullName" id="fullName" placeholder="(minimum 3 characters)">
+        </label>
+        <label for="adress">
+            Address: <br />
+            <input type="text" name="address" id="address" placeholder="(minimum 6 characters)">
+        </label>
+        <label for="creditCard">
+            Credit Card Number: <br />
+            <input type="text" name="creditCard" id="creditCard" placeholder="(16-digit number)">
+        </label>
+        <p>We'll never share your payment details with anyone</p>
+        <button type="submit">Submit</button>
+    </div>
+    
     <h2>Total Price: ${{totalPrice}}</h2>
-</div>
+</form>
