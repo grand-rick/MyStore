@@ -21,6 +21,11 @@
     padding: 5px;
 }
 
+.cart-element {
+    display: flex;
+    flex-direction: row;
+}
+
 img {
     width: 100px;
 }
