@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-top: 64px;
 }
 
 .parent1 {
@@ -24,9 +25,21 @@
 .cart-element {
     display: flex;
     flex-direction: row;
+    margin-bottom: 20px;
 }
 
 img {
     width: 100px;
+    border-radius: 10px;
 }
 
+.number-input {
+    width: 80px;
+    text-align: center;
+}
+
+.empty-cart-message {
+    display: flex;
+    justify-content: center;
+    margin-top: 64px;
+}
