@@ -1,4 +1,4 @@
-<form class="cart">
+<div class="cart">
     <div class="parent1">
         <div class="cart-element" *ngFor="let product of cartProducts">
             <img src={{product.url}} alt={{product.name}}> <br />
@@ -12,22 +12,22 @@
             </div>
         </div>
     </div>
-    <div class="parent2">
+    <form class="parent2" (ngSubmit)="checkOut()">
         <label for="fullName">
             Full Name: <br />
-            <input type="text" name="fullName" id="fullName" placeholder="(minimum 3 characters)">
+            <input type="text" name="fullName" id="fullName" required placeholder="(minimum 3 characters)">
         </label>
         <label for="adress">
             Address: <br />
-            <input type="text" name="address" id="address" placeholder="(minimum 6 characters)">
+            <input type="text" name="address" id="address" required placeholder="(minimum 6 characters)">
         </label>
         <label for="creditCard">
             Credit Card Number: <br />
-            <input type="text" name="creditCard" id="creditCard" placeholder="(16-digit number)">
+            <input type="number" name="creditCard" id="creditCard" required placeholder="(16-digit number)">
         </label>
         <p>We'll never share your payment details with anyone</p>
-        <button type="submit">Submit</button>
-    </div>
+        <button type="submit" routerLink="/">Submit</button>
+    </form>
     
     <h2>Total Price: ${{totalPrice}}</h2>
-</form>
+</div>
