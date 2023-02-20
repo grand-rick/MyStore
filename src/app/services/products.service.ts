@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductsService {
   currentProduct: Product;
-  cartProducts: Product[] =[];
+  cartProducts: Product[] = [];
 
   constructor(private http: HttpClient) { 
     this.currentProduct = {
@@ -65,6 +65,11 @@ export class ProductsService {
 
   removeCartProduct(product: Product): Product[] {
     this.cartProducts = this.cartProducts.filter(p => p.name != product.name);
+    return this.cartProducts;
+  }
+
+  clearCartProducts(): Product[] {
+    this.cartProducts = [];
     return this.cartProducts;
   }
 }
