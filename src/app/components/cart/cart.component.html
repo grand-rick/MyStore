@@ -12,7 +12,7 @@
             </div>
         </div>
     </div>
-    <form class="parent2" (ngSubmit)="checkOut()">
+    <form class="parent2">
         <label for="fullName">
             Full Name: <br />
             <input type="text" name="fullName" id="fullName" required placeholder="(minimum 3 characters)">
@@ -26,7 +26,7 @@
             <input type="number" name="creditCard" id="creditCard" required placeholder="(16-digit number)">
         </label>
         <p>We'll never share your payment details with anyone</p>
-        <button type="submit" routerLink="/">Submit</button>
+        <button type="submit" (click)="checkOut()" routerLink="/">Submit</button>
     </form>
     
     <h2>Total Price: ${{totalPrice}}</h2>
