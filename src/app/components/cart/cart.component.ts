@@ -31,4 +31,9 @@ export class CartComponent implements OnInit {
     }
     return tPrice;
   }
+
+  checkOut() {
+    this.productsService.clearCartProducts();
+    alert(`Checked out!`);
+  }
 }
