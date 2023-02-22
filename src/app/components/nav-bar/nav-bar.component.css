@@ -5,6 +5,7 @@
     align-items: center;
     font-size: 36px;
     background-color: aqua;
+    width: 100%;
 }
 
 .nav-bar a {
