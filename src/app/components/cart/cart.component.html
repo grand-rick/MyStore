@@ -1,18 +1,19 @@
 <div class="cart">
-    <div class="parent1">
+    <div class="parent1" *ngIf="isCartEmpty == false" >
         <div class="cart-element" *ngFor="let product of cartProducts">
             <img src={{product.url}} alt={{product.name}}> <br />
             <div >
-                {{product.name}} <br />
-                ${{product.price}} <br />
-                {{product.description}} <br />
-                Amount: <input type="number" name="amount" class="number-input" value={{product.amount}} /> <br />
-                <button class="btn btn-danger" (click)="removeCartProduct(product)">Remove</button> <br />
-                <a routerLink="/">Back to Product List</a>
+                <span class="cart-element-child" >{{product.name}}</span> <br />
+                <span class="cart-element-child" >${{product.price}}</span> <br />
+                <span class="cart-element-child" >{{product.description}}</span> <br />
+                <span class="cart-element-child" >Amount: <input type="number" name="amount" class="number-input" value={{product.amount}} /></span> <br />
+                <button class="btn btn-danger cart-element-child" (click)="removeCartProduct(product)">Remove</button> <br />
+                <a routerLink="/" class="cart-element-child">Back to Product List</a>
             </div>
         </div>
+        <h2>Total Price: ${{totalPrice}}</h2>
     </div>
-    <form class="parent2">
+    <form class="parent2" *ngIf="isCartEmpty == false">
         <label for="fullName">
             Full Name: <br />
             <input type="text" name="fullName" id="fullName" required placeholder="(minimum 3 characters)">
@@ -26,8 +27,9 @@
             <input type="number" name="creditCard" id="creditCard" required placeholder="(16-digit number)">
         </label>
         <p>We'll never share your payment details with anyone</p>
-        <button type="submit" (click)="checkOut()" routerLink="/">Submit</button>
+        <button type="submit" class="btn btn-primary" (click)="checkOut()" routerLink="/">Submit</button>
     </form>
-    
-    <h2>Total Price: ${{totalPrice}}</h2>
+    <div *ngIf="isCartEmpty == true">
+        <h2>Cart is Empty!</h2>
+    </div>
 </div>
