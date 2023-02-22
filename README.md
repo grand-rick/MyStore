@@ -1,6 +1,10 @@
 # MyStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
+
+
+## **Description**
+This is just the frontend part of an e-commerce website using Angular. The website fetches data from a [json file](src/assets/data.json), and renders it  to the UI seamlessly for user manipulation. The `data.json` file is a stand-in for the actual API that would fetch real-time data from the database.
 
 ## Development server
 
@@ -17,3 +21,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+>## Checkout the website at [My Store](https://my-store-final.vercel.app/).
