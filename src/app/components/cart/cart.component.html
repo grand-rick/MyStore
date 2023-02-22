@@ -13,21 +13,21 @@
         </div>
         <h2>Total Price: ${{totalPrice}}</h2>
     </div>
-    <form class="parent2" *ngIf="isCartEmpty == false">
+    <form (ngSubmit)="checkOut()" #form="ngForm" class="parent2" *ngIf="isCartEmpty == false">
         <label for="fullName">
             Full Name: <br />
-            <input type="text" name="fullName" id="fullName" required placeholder="(minimum 3 characters)">
+            <input type="text" name="fullName" id="fullName" placeholder="(minimum 3 characters)" [(ngModel)]="fullName" required minlength="3">
         </label>
         <label for="adress">
             Address: <br />
-            <input type="text" name="address" id="address" required placeholder="(minimum 6 characters)">
+            <input type="text" name="address" id="address" placeholder="(minimum 6 characters)" [(ngModel)]="address" required minlength="6">
         </label>
         <label for="creditCard">
             Credit Card Number: <br />
-            <input type="number" name="creditCard" id="creditCard" required placeholder="(16-digit number)">
+            <input type="text" name="creditCardNumber" id="creditCard" placeholder="(16-digit number)" [(ngModel)]="creditCardNumber" required minlength="16">
         </label>
         <p>We'll never share your payment details with anyone</p>
-        <button type="submit" class="btn btn-primary" (click)="checkOut()" routerLink="/">Submit</button>
+        <button type="submit" [disabled]="form.invalid">Submit</button>
     </form>
     <div *ngIf="isCartEmpty == true">
         <h2>Cart is Empty!</h2>
