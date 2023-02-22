@@ -11,8 +11,11 @@ import { ProductsService } from 'src/app/services/products.service';
 export class CartComponent implements OnInit {
   cartProducts: Product[] = this.productsService.getCartProducts();
   totalPrice: number = 0;
+  isCartEmpty: boolean;
 
-  constructor (private productsService: ProductsService) {}
+  constructor (private productsService: ProductsService) {
+    this.isCartEmpty = this.emptyCartHandler();
+  }
 
   ngOnInit(): void {
     this.totalPrice = this.getTotalPrice().toFixed(2) as unknown as number;
@@ -21,6 +24,7 @@ export class CartComponent implements OnInit {
   removeCartProduct(product: Product): void {
     this.cartProducts = this.productsService.removeCartProduct(product);
     this.totalPrice = this.getTotalPrice().toFixed(2) as unknown as number;
+    this.isCartEmpty = this.emptyCartHandler();
     alert(`${product.name} has been removed from cart`);
   }
 
@@ -35,5 +39,13 @@ export class CartComponent implements OnInit {
   checkOut() {
     this.productsService.clearCartProducts();
     alert(`Checked out!`);
+  }
+
+  emptyCartHandler(): boolean {
+    const hasProducts = this.productsService.getCartProducts().length;
+    if (hasProducts) {
+      return false;
+    }
+    return true;
   }
 }
