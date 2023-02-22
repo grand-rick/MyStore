@@ -42,7 +42,7 @@ export class CartComponent implements OnInit {
   checkOut() {
     this.productsService.clearCartProducts();
     this.goToDashboard();
-    alert(`Checked out!: Your total bill is - ${this.totalPrice}`);
+    alert(`Checked out!: Your total bill is - \$${this.totalPrice}`);
   }
 
   emptyCartHandler(): boolean {
