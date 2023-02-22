@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/Product';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -12,8 +12,11 @@ export class CartComponent implements OnInit {
   cartProducts: Product[] = this.productsService.getCartProducts();
   totalPrice: number = 0;
   isCartEmpty: boolean;
+  fullName: string = '';
+  address: string = '';
+  creditCardNumber: string = '';
 
-  constructor (private productsService: ProductsService) {
+  constructor (private productsService: ProductsService, private router: Router) {
     this.isCartEmpty = this.emptyCartHandler();
   }
 
@@ -38,6 +41,7 @@ export class CartComponent implements OnInit {
 
   checkOut() {
     this.productsService.clearCartProducts();
+    this.goToDashboard();
     alert(`Checked out!`);
   }
 
@@ -47,5 +51,9 @@ export class CartComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  goToDashboard() {
+    this.router.navigate(['/']);
   }
 }
