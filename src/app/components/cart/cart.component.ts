@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
   isCartEmpty: boolean;
   fullName: string = '';
   address: string = '';
-  creditCardNumber: string = '';
+  creditCardNumber: number = 0;
 
   constructor (private productsService: ProductsService, private router: Router) {
     this.isCartEmpty = this.emptyCartHandler();

@@ -6,7 +6,8 @@
                 <span class="cart-element-child" >{{product.name}}</span> <br />
                 <span class="cart-element-child" >${{product.price}}</span> <br />
                 <span class="cart-element-child" >{{product.description}}</span> <br />
-                <span class="cart-element-child" >Amount: <input type="number" name="amount" class="number-input" value={{product.amount}} /></span> <br />
+                <span class="cart-element-child" >Amount: <input type="number" name="amount" class="number-input" id={{product.id}}   value={{product.amount}} /></span> <br />
+                <!-- <app-cart-input [product]="product" ></app-cart-input> -->
                 <button class="btn btn-danger cart-element-child" (click)="removeCartProduct(product)">Remove</button> <br />
                 <a routerLink="/" class="cart-element-child">Back to Product List</a>
             </div>
@@ -16,15 +17,15 @@
     <form (ngSubmit)="checkOut()" #form="ngForm" class="parent2" *ngIf="isCartEmpty == false">
         <label for="fullName">
             Full Name: <br />
-            <input type="text" name="fullName" id="fullName" placeholder="(minimum 3 characters)" [(ngModel)]="fullName" required minlength="3">
+            <input type="text" #fullName="ngModel" name="fullName" id="fullName" placeholder="(minimum 3 characters)" [(ngModel)]="fullName" required minlength="3" maxlength="20">
         </label>
         <label for="adress">
             Address: <br />
-            <input type="text" name="address" id="address" placeholder="(minimum 6 characters)" [(ngModel)]="address" required minlength="6">
+            <input type="text" name="address" id="address" placeholder="(minimum 6 characters)" [(ngModel)]="address" required minlength="6" maxlength="10">
         </label>
         <label for="creditCard">
             Credit Card Number: <br />
-            <input type="text" name="creditCardNumber" id="creditCard" placeholder="(16-digit number)" [(ngModel)]="creditCardNumber" required minlength="16">
+            <input type="number" name="creditCardNumber" id="creditCard" placeholder="(16-digit number)" [(ngModel)]="creditCardNumber" required minlength="16" maxlength="16">
         </label>
         <p>We'll never share your payment details with anyone</p>
         <button type="submit" [disabled]="form.invalid">Submit</button>
