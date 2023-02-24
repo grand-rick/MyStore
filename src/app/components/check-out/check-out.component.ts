@@ -17,6 +17,7 @@ export class CheckOutComponent implements OnInit {
 
   checkOut(): void {
     alert(`You have checked Out!`);
+    this.productsService.clearCartProducts();
     this.goToProductList();
   }
 
