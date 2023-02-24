@@ -1,10 +1,12 @@
-<img src={{product.url}} alt={{product.name}}> <br />
-<div >
-    <span class="cart-element-child" >{{product.name}}</span> <br />
-    <span class="cart-element-child" >${{product.price}}</span> <br />
-    <span class="cart-element-child" >{{product.description}}</span> <br />
-    <span class="cart-element-child" >Amount: <input type="number" name="amount" class="number-input" id={{product.id}}   value={{product.amount}} /></span> <br />
-    <input type="number" name="amount" id={{product.id}} [value]="amount" [(ngModel)]="amount" (ngModelChange)="onInputChange($event)" >
-    <button class="btn btn-danger cart-element-child" (click)="removeCartProduct(product)">Remove</button> <br />
-    <a routerLink="/" class="cart-element-child">Back to Product List</a>
+<div class="cart-element">
+    <img src={{product.url}} alt={{product.name}}> <br />
+    <div >
+        <span class="cart-element-child" >{{product.name}}</span> <br />
+        <span class="cart-element-child" >${{product.price}}</span> <br />
+        <span class="cart-element-child" >{{product.description}}</span> <br />
+        <span class="cart-element-child" >Amount: <input type="number" name="amount" class="number-input" id={{product.id}}   value={{product.amount}} /></span> <br />
+        <input type="number" name="amount" id={{product.id}} [(ngModel)]="amount" (ngModelChange)="onInputChange($event)" >
+        <button class="btn btn-danger cart-element-child" (click)="removeCartProduct(product)">Remove</button> <br />
+        <a routerLink="/" class="cart-element-child">Back to Product List</a>
+    </div>
 </div>
