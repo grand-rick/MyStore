@@ -10,6 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
   @Output() addToCart: EventEmitter<Product> = new EventEmitter();
+  @Output() inputChange: EventEmitter<number> = new EventEmitter();
   availableProducts: number[] = [];
   selectedProducts: number = 0;
   
@@ -35,8 +36,11 @@ export class ProductItemComponent implements OnInit {
   }
 
   onSubmitForm(product: Product): void {
-    product.amount = +this.selectedProducts;
     this.addToCart.emit(product);
     this.selectedProducts = 0;
+  }
+
+  onInputChange(newValue: number): void {
+    this.inputChange.emit(newValue);
   }
 }
