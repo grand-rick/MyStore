@@ -1,6 +1,6 @@
 <div class="cart">
     <div class="parent1" *ngIf="isCartEmpty == false" >
-        <app-cart-input class="cart-element" *ngFor="let product of cartProducts" [product]="product" ></app-cart-input>
+        <app-cart-input class="cart-element" *ngFor="let product of cartProducts" [product]="product" (removeProduct)="removeCartProduct($event)" ></app-cart-input>
         <h2>Total Price: ${{totalPrice}}</h2>
     </div>
     <form (ngSubmit)="checkOut()" #form="ngForm" class="parent2" *ngIf="isCartEmpty == false">
