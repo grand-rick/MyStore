@@ -7,6 +7,7 @@
         <select name="selectedProducts" id="selectedProducts" [(ngModel)]="selectedProducts">
             <option *ngFor="let item of availableProducts" value={{item}}>{{item}}</option>
         </select> <br /> <br />
-        <button type="submit" class="btn btn-primary" >Add to Cart</button>
+        <button type="submit" class="btn btn-primary" >Add to Cart</button> <br />
+        <a routerLink="/" class="cart-element-child">Back to Product List</a>
     </form>
 </div>
