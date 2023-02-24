@@ -6,7 +6,7 @@
     <form (ngSubmit)="checkOut()" #form="ngForm" class="parent2" *ngIf="isCartEmpty == false">
         <label for="fullName">
             Full Name: <br />
-            <input type="text" name="fullName" id="fullName" placeholder="(minimum 3 characters)" [(ngModel)]="fullName" required minlength="3" maxlength="20">
+            <input type="text" name="fullName" id="fullName" placeholder="(minimum 3 characters)" [(ngModel)]="fullName" required minlength="6" maxlength="20" #fullNameVar="ngModel">
         </label>
         <label for="adress">
             Address: <br />
@@ -14,10 +14,18 @@
         </label>
         <label for="creditCard">
             Credit Card Number: <br />
-            <input type="number" name="creditCardNumber" id="creditCard" placeholder="(16-digit number)" [(ngModel)]="creditCardNumber" required minlength="16" maxlength="16">
+            <input type="number" name="creditCardNumber" id="creditCard" placeholder="(16-digit number)" [(ngModel)]="creditCardNumber" required minlength="16" maxlength="18">
         </label>
         <p>We'll never share your payment details with anyone</p>
         <button type="submit" [disabled]="form.invalid">Submit</button>
+        <!-- <div *ngIf="fullNameVar.invalid && fullNameVar.dirty">
+            <div *ngIf="fullNameVar.errors['required']">
+              Please provide your full name.
+            </div>
+            <div *ngIf="fullNameVar?.errors?.minlength">
+              The name must contain at least 6 characters.
+            </div>
+        </div> -->
     </form>
     <div *ngIf="isCartEmpty == true">
         <h2>Cart is Empty!</h2>

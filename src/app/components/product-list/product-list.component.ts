@@ -8,8 +8,9 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-
   myProducts: Product[] = [];
+  selectedProducts: number = 0;
+
 
   constructor (private productsService: ProductsService) {}
 
@@ -17,6 +18,12 @@ export class ProductListComponent implements OnInit {
     this.productsService.getProducts().subscribe(data => {
       this.myProducts = data;
     })
+  }
 
+  addToCart(product: Product): void {
+    product.amount = +this.selectedProducts;
+    this.productsService.addProductToCart(product);
+    this.selectedProducts = 0;
+    alert(`${product.name} has been added to cart`);
   }
 }

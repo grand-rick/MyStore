@@ -4,7 +4,7 @@
     </a>
     <p>{{product.name}}</p>
     <p>${{product.price}}</p>
-    <form (ngSubmit)="addToCart(product)">
+    <form (ngSubmit)="onSubmitForm(product)">
         <select name="selectedProducts" id="selectedProducts" [(ngModel)]="selectedProducts">
             <option *ngFor="let item of availableProducts" value={{item}}>{{item}}</option>
         </select> <br /> <br />
