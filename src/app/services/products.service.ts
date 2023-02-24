@@ -63,6 +63,16 @@ export class ProductsService {
     return this.cartProducts
   }
 
+  editCartProduct(product: Product): Product[] {
+    this.cartProducts = this.cartProducts.map(p => {
+      if (p.id == product.id) {
+        p.amount = product.amount;
+      }
+      return p;
+    })
+    return this.cartProducts;
+  }
+
   removeCartProduct(product: Product): Product[] {
     this.cartProducts = this.cartProducts.filter(p => p.name != product.name);
     return this.cartProducts;
@@ -80,4 +90,6 @@ export class ProductsService {
     }
     return tPrice;
   }
+
+  
 }
