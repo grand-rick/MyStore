@@ -12,6 +12,7 @@ export class ProductItemComponent implements OnInit {
   @Output() addToCart: EventEmitter<Product> = new EventEmitter();
   availableProducts: number[] = [];
   selectedProducts: number = 0;
+  
 
   constructor (private productsService: ProductsService) {
     this.product = {
@@ -34,6 +35,8 @@ export class ProductItemComponent implements OnInit {
   }
 
   onSubmitForm(product: Product): void {
+    product.amount = +this.selectedProducts;
     this.addToCart.emit(product);
+    this.selectedProducts = 0;
   }
 }
