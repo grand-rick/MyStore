@@ -14,6 +14,7 @@
         <h2>Total Price: ${{totalPrice}}</h2>
     </div>
     <form (ngSubmit)="checkOut()" #myForm="ngForm" class="parent2" *ngIf="isCartEmpty == false">
+        <h2>CHECK OUT</h2>
         <label for="fullName">
             Full Name: <br />
             <input type="text" name="fullName" id="fullName" placeholder="(minimum 6 characters)" [(ngModel)]="fullName"  minlength="6" maxlength="20" #fullNameInput="ngModel" required>
