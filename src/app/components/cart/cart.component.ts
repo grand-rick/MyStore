@@ -56,7 +56,6 @@ export class CartComponent implements OnInit {
 
   onInputChange(event: Event): number {
     let id: number = +(event.target as HTMLInputElement).id;
-    alert(`Id: ${id}`)
     let value: number = +(event.target as HTMLInputElement).value;
     this.cartProducts.forEach(p => {
       if (p.id == id) {
