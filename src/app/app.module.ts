@@ -10,6 +10,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { CartComponent } from './components/cart/cart.component';
 import { ProductItemDetailComponent } from './components/product-item-detail/product-item-detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CheckOutComponent } from './components/check-out/check-out.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductItemComponent,
     CartComponent,
     ProductItemDetailComponent,
+    CheckOutComponent,
   ],
   imports: [
     BrowserModule,
