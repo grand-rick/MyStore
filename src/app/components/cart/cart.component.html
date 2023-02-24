@@ -1,6 +1,16 @@
 <div class="cart">
     <div class="parent1" *ngIf="isCartEmpty == false" >
-        <app-cart-input class="cart-element" *ngFor="let product of cartProducts" [product]="product" (removeProduct)="removeCartProduct($event)" ></app-cart-input>
+        <div class="cart-element" *ngFor="let product of cartProducts">
+            <img src={{product.url}} alt={{product.name}}> <br />
+            <div >
+                <span class="cart-element-child" >{{product.name}}</span> <br />
+                <span class="cart-element-child" >${{product.price}}</span> <br />
+                <span class="cart-element-child" >{{product.description}}</span> <br />
+                <span class="cart-element-child" >Amount: <input type="number" name="amount" id="product.id" [value]="product.amount" [(ngModel)]="product.amount" (input)="product.amount=onInputChange($event)" /></span> <br />
+                <button class="btn btn-danger cart-element-child" (click)="removeCartProduct(product)">Remove</button> <br />
+                <a routerLink="/" class="cart-element-child">Back to Product List</a>
+            </div>
+        </div>
         <h2>Total Price: ${{totalPrice}}</h2>
     </div>
     <form (ngSubmit)="checkOut()" #form="ngForm" class="parent2" *ngIf="isCartEmpty == false">

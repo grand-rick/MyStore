@@ -53,4 +53,18 @@ export class CartComponent implements OnInit {
   goToDashboard() {
     this.router.navigate(['/']);
   }
+
+  onInputChange(event: Event): number {
+    let id: number = +(event.target as HTMLInputElement).id;
+    alert(`Id: ${id}`)
+    let value: number = +(event.target as HTMLInputElement).value;
+    this.cartProducts.forEach(p => {
+      if (p.id == id) {
+        p.amount = value;
+        this.cartProducts = this.productsService.editCartProduct(p);
+      }
+    })
+    this.totalPrice = this.getTotalPrice();
+    return value;
+  }
 }
