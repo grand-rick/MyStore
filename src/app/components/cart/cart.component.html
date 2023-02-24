@@ -1,23 +1,12 @@
 <div class="cart">
     <div class="parent1" *ngIf="isCartEmpty == false" >
-        <div class="cart-element" *ngFor="let product of cartProducts">
-            <img src={{product.url}} alt={{product.name}}> <br />
-            <div >
-                <span class="cart-element-child" >{{product.name}}</span> <br />
-                <span class="cart-element-child" >${{product.price}}</span> <br />
-                <span class="cart-element-child" >{{product.description}}</span> <br />
-                <span class="cart-element-child" >Amount: <input type="number" name="amount" class="number-input" id={{product.id}}   value={{product.amount}} /></span> <br />
-                <!-- <app-cart-input [product]="product" ></app-cart-input> -->
-                <button class="btn btn-danger cart-element-child" (click)="removeCartProduct(product)">Remove</button> <br />
-                <a routerLink="/" class="cart-element-child">Back to Product List</a>
-            </div>
-        </div>
+        <app-cart-input class="cart-element" *ngFor="let product of cartProducts" [product]="product" ></app-cart-input>
         <h2>Total Price: ${{totalPrice}}</h2>
     </div>
     <form (ngSubmit)="checkOut()" #form="ngForm" class="parent2" *ngIf="isCartEmpty == false">
         <label for="fullName">
             Full Name: <br />
-            <input type="text" #fullName="ngModel" name="fullName" id="fullName" placeholder="(minimum 3 characters)" [(ngModel)]="fullName" required minlength="3" maxlength="20">
+            <input type="text" name="fullName" id="fullName" placeholder="(minimum 3 characters)" [(ngModel)]="fullName" required minlength="3" maxlength="20">
         </label>
         <label for="adress">
             Address: <br />
