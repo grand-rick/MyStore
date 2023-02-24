@@ -83,13 +83,12 @@ export class ProductsService {
     return this.cartProducts;
   }
 
-  getTotalPrice(): number {
+  getTotalPrice(num?: number): number {
     let tPrice: number = 0
     for (let i = 0, n = this.cartProducts.length; i < n; i++) {
       tPrice += +this.cartProducts[i].amount  * +this.cartProducts[i].price;
     }
-    return tPrice;
+    return tPrice.toFixed(num || 2) as unknown as number;
   }
-
   
 }
