@@ -52,3 +52,6 @@ img {
     margin-top: 64px;
 }
 
+.error-message {
+    color: red;
+}

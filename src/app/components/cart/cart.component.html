@@ -13,29 +13,33 @@
         </div>
         <h2>Total Price: ${{totalPrice}}</h2>
     </div>
-    <form (ngSubmit)="checkOut()" #form="ngForm" class="parent2" *ngIf="isCartEmpty == false">
+    <form (ngSubmit)="checkOut()" #myForm="ngForm" class="parent2" *ngIf="isCartEmpty == false">
         <label for="fullName">
             Full Name: <br />
-            <input type="text" name="fullName" id="fullName" placeholder="(minimum 3 characters)" [(ngModel)]="fullName" required minlength="6" maxlength="20" #fullNameVar="ngModel">
+            <input type="text" name="fullName" id="fullName" placeholder="(minimum 6 characters)" [(ngModel)]="fullName"  minlength="6" maxlength="20" #fullNameInput="ngModel" required>
         </label>
         <label for="adress">
             Address: <br />
-            <input type="text" name="address" id="address" placeholder="(minimum 6 characters)" [(ngModel)]="address" required minlength="6" maxlength="10">
+            <input type="text" name="address" id="address" placeholder="(minimum 6 characters)" [(ngModel)]="address"  minlength="6" maxlength="10" #addressInput="ngModel" required>
         </label>
         <label for="creditCard">
             Credit Card Number: <br />
-            <input type="number" name="creditCardNumber" id="creditCard" placeholder="(16-digit number)" [(ngModel)]="creditCardNumber" required minlength="16" maxlength="18">
+            <input type="number" name="creditCardNumber" id="creditCard" placeholder="(16-digit number)" [(ngModel)]="creditCardNumber" minlength="16" maxlength="18" #creditCardInput="ngModel" required>
         </label>
         <p>We'll never share your payment details with anyone</p>
-        <button type="submit" [disabled]="form.invalid">Submit</button>
-        <!-- <div *ngIf="fullNameVar.invalid && fullNameVar.dirty">
-            <div *ngIf="fullNameVar.errors['required']">
-              Please provide your full name.
-            </div>
-            <div *ngIf="fullNameVar?.errors?.minlength">
-              The name must contain at least 6 characters.
-            </div>
-        </div> -->
+        <button type="submit" [disabled]="myForm.invalid">Submit</button>
+        <div class="error-message" *ngIf="fullNameInput.invalid && (fullNameInput.dirty || fullNameInput.touched)">
+            <div *ngIf="fullNameInput.errors?.['required']">Full Name is required.</div>
+            <div *ngIf="fullNameInput.errors?.['minlength']">Full Name must have 6 characters.</div>
+        </div>
+        <div class="error-message" *ngIf="addressInput.invalid && (addressInput.dirty || addressInput.touched)">
+            <div *ngIf="addressInput.errors?.['required']">Address is required.</div>
+            <div *ngIf="addressInput.errors?.['minlength']">Address must have 6 characters.</div>
+        </div>
+        <div class="error-message" *ngIf="creditCardInput.invalid && (creditCardInput.dirty || creditCardInput.touched)">
+            <div *ngIf="creditCardInput.errors?.['required']">Credit Card is required.</div>
+            <div *ngIf="creditCardInput.errors?.['minlength']">Credit Card must have 6 characters.</div>
+        </div>
     </form>
     <div *ngIf="isCartEmpty == true">
         <h2>Cart is Empty!</h2>
