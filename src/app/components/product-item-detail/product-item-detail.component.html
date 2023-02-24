@@ -1,6 +1,6 @@
 <div class="product-item-detail">
     <img src={{product.url}} alt={{product.name}} />
-    <form (ngSubmit)="addToCart(product)">
+    <form class="child" (ngSubmit)="addToCart(product)">
         <p>{{product.name}}</p>
         <p>${{product.price}}</p>
         <p>{{product.description}}</p>
