@@ -9,3 +9,7 @@
 img {
     width: 320px;
 }
+
+.child {
+    margin-left: 10px;
+}

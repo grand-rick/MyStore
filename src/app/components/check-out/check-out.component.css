@@ -12,13 +12,13 @@
     text-transform: uppercase;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     column-gap: 5px;
 }
