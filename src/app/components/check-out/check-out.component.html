@@ -1,1 +1,25 @@
-<p>check-out works!</p>
+<form (ngSubmit)="checkOut()" class="check-out">
+    <div class="header-area">
+        <div>
+            Product
+        </div>
+        <div>
+            Amount
+        </div>
+        <div>
+            Price
+        </div>
+    </div>
+    <div class="main" *ngFor="let product of cartProducts">
+        <div class="sub">
+            <img src={{product.url}} width="100" alt={{product.name}} />
+        </div>
+        <div class="sub">
+            {{product.amount}}
+        </div>
+        <div class="sub">
+            {{product.amount * product.price}}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Check Out</button>
+</form>
