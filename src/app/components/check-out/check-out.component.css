@@ -10,6 +10,7 @@
     font-size: 30px;
     font-weight: bold;
     text-transform: uppercase;
+    flex-direction: row;
 }
 
 .main {
