@@ -12,21 +12,13 @@
     text-transform: uppercase;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-}
-
-.header-area > div {
-    margin-right: 5px;
+    justify-content: space-around;
 }
 
 .main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    column-gap: 5px;
-}
-
-.sub {
-    margin-right: 5px;
+    gap: 5px;
 }
