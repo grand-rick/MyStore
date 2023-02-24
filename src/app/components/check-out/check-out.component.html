@@ -18,9 +18,9 @@
             {{product.amount}}
         </div>
         <div class="sub">
-            {{product.amount * product.price}}
+            {{(product.amount * product.price).toFixed(2)}}
         </div>
     </div>
-    <h2>{{totalPrice}}</h2>
+    <h2>${{totalPrice}}</h2>
     <button type="submit" class="btn btn-success">Check Out</button>
 </form>
