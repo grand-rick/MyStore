@@ -33,11 +33,7 @@ export class CartComponent implements OnInit {
   }
 
   getTotalPrice(): number {
-    let tPrice: number = 0
-    for (let i = 0, n = this.cartProducts.length; i < n; i++) {
-      tPrice += +this.cartProducts[i].amount  * +this.cartProducts[i].price;
-    }
-    return tPrice;
+    return this.productsService.getTotalPrice();
   }
 
   checkOut() {
