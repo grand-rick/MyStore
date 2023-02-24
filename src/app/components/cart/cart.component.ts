@@ -8,6 +8,7 @@ import { ProductsService } from 'src/app/services/products.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
 export class CartComponent implements OnInit {
   cartProducts: Product[] = this.productsService.getCartProducts();
   totalPrice: number = 0;
