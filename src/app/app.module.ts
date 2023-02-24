@@ -10,6 +10,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { CartComponent } from './components/cart/cart.component';
 import { ProductItemDetailComponent } from './components/product-item-detail/product-item-detail.component';
 import { CartInputComponent } from './components/cart-input/cart-input.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CartInputComponent } from './components/cart-input/cart-input.component
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
