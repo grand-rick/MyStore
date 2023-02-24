@@ -22,3 +22,8 @@
     align-items: center;
     gap: 5px;
 }
+
+.sub {
+    display: flex;
+    justify-content: center;
+}
