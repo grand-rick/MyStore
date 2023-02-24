@@ -6,7 +6,7 @@
                 <span class="cart-element-child" >{{product.name}}</span> <br />
                 <span class="cart-element-child" >${{product.price}}</span> <br />
                 <span class="cart-element-child" >{{product.description}}</span> <br />
-                <span class="cart-element-child" >Amount: <input type="number" name="amount" id="product.id" [value]="product.amount" [(ngModel)]="product.amount" (input)="product.amount=onInputChange($event)" max="100" /></span> <br />
+                <span class="cart-element-child" >Amount: <input type="number" name="amount" id="product.id" [value]="product.amount" [(ngModel)]="product.amount" (input)="product.amount=onInputChange($event)" max="10" /></span> <br />
                 <button class="btn btn-danger cart-element-child" (click)="removeCartProduct(product)">Remove</button> <br />
                 <a routerLink="/" class="cart-element-child">Back to Product List</a>
             </div>
@@ -38,7 +38,7 @@
         </div>
         <div class="error-message" *ngIf="creditCardInput.invalid && (creditCardInput.dirty || creditCardInput.touched)">
             <div *ngIf="creditCardInput.errors?.['required']">Credit Card is required.</div>
-            <div *ngIf="creditCardNumber < 100000">Credit Card must have 6 characters.</div>
+            <div *ngIf="creditCardNumber < 100000">Credit Card must be at least > 100,000.</div>
         </div>
     </form>
     <div *ngIf="isCartEmpty == true">
