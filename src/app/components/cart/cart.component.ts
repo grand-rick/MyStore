@@ -37,7 +37,6 @@ export class CartComponent implements OnInit {
   }
 
   checkOut() {
-    this.productsService.clearCartProducts();
     this.goToCheckOut();
   }
 
