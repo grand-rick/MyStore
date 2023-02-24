@@ -15,10 +15,18 @@
     justify-content: space-between;
 }
 
+.header-area > div {
+    margin-right: 5px;
+}
+
 .main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
     align-items: center;
     column-gap: 5px;
+}
+
+.sub {
+    margin-right: 5px;
 }
