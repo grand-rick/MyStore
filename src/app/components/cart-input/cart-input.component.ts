@@ -32,13 +32,27 @@ export class CartInputComponent implements OnInit {
     this.amount = this.product.amount;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.productsServices.getCartProducts().forEach(product => {
+      let cartObject: CartP = {
+        id: product.id,
+        amount: product.amount
+      };
+      this.cartPs.unshift(cartObject);
+    });
+  }
 
-  onInputChange(newInput: number): void {
-    this.amount = newInput;
+  onInputChange(event: Event): number {
+    // this.amount = newInput;
+    this.getTotalPrice();
+    return +(event.target as HTMLInputElement).value;
   }
 
   removeCartProduct(product: Product) {
     this.removeProduct.emit(product);
+  }
+
+  getTotalPrice(): number {
+    return this.productsServices.getTotalPrice().toFixed(2) as unknown as number;
   }
 }
