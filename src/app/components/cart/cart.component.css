@@ -19,7 +19,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     padding: 5px;
-    align-items: start;
+    align-items: flex-start;
 }
 
 .cart-element {

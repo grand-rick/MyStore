@@ -10,8 +10,8 @@
     font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     justify-content: space-around;
 }
 
