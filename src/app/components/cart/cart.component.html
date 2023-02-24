@@ -28,7 +28,7 @@
             <input type="number" name="creditCardNumber" id="creditCard" placeholder="(16-digit number)" [(ngModel)]="creditCardNumber" min="100000" max="10000000" #creditCardInput="ngModel" required>
         </label>
         <p>We'll never share your payment details with anyone</p>
-        <button type="submit" [disabled]="myForm.invalid">Submit</button>
+        <button type="submit" class="btn btn-success" [disabled]="myForm.invalid">Submit</button>
         <div class="error-message" *ngIf="fullNameInput.invalid && (fullNameInput.dirty || fullNameInput.touched)">
             <div *ngIf="fullNameInput.errors?.['required']">Full Name is required.</div>
             <div *ngIf="fullNameInput.errors?.['minlength']">Full Name must have 6 characters.</div>
