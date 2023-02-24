@@ -33,13 +33,12 @@ export class CartComponent implements OnInit {
   }
 
   getTotalPrice(): number {
-    return this.productsService.getTotalPrice().toFixed(2) as unknown as number;
+    return this.productsService.getTotalPrice();
   }
 
   checkOut() {
     this.productsService.clearCartProducts();
-    this.goToDashboard();
-    alert(`Checked out!: Your total bill is - \$${this.totalPrice}`);
+    this.goToCheckOut();
   }
 
   emptyCartHandler(): boolean {
@@ -50,8 +49,8 @@ export class CartComponent implements OnInit {
     return true;
   }
 
-  goToDashboard() {
-    this.router.navigate(['/']);
+  goToCheckOut() {
+    this.router.navigate(['/check-out']);
   }
 
   onInputChange(event: Event): number {
