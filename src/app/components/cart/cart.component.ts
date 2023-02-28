@@ -55,6 +55,11 @@ export class CartComponent implements OnInit {
   onInputChange(event: Event): number {
     let id: number = +(event.target as HTMLInputElement).id;
     let value: number = +(event.target as HTMLInputElement).value;
+
+    if (value < 0) {
+      value = 0;
+    }
+
     this.cartProducts.forEach(p => {
       if (p.id == id) {
         p.amount = value;
