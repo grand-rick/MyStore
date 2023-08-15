@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../models/Product';
-import { ProductsService } from '../../services/products.service';
+import { Product } from '../shared/data-access/models/Product';
+import { ProductsService } from '../shared/data-access/services/products.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ export class CheckOutComponent implements OnInit {
   constructor (private productsService: ProductsService, private router: Router) {}
 
   checkOut(): void {
-    alert(`You have checked Out!`);
+    window.alert(`You have checked Out!`);
     this.productsService.clearCartProducts();
     this.goToProductList();
   }
@@ -24,6 +24,6 @@ export class CheckOutComponent implements OnInit {
   ngOnInit(): void {}
 
   goToProductList() {
-    this.router.navigate(['/']);
+    this.router.navigateByUrl('');
   }
 }
