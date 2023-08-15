@@ -1,16 +1,8 @@
-.product-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
+.product-item {
+  text-align: center;
 }
 
-.product-index {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1024px;
-    margin-bottom: 64px;
-    padding: 10px;
+img {
+  width: 300px;
+  border: 2.5px #182848 solid;
 }
-

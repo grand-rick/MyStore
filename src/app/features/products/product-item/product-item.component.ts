@@ -9,18 +9,19 @@ import { ProductsService } from 'src/app/features/shared/data-access/services/pr
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent implements OnInit {
-  id: string = '';
-  product!: Product;
+  id: string = '1';
+  product: Product = this.productsService.product;
   availableProducts: number[] = [];
   selectedProducts: number = 0;
 
-  constructor (private productsService: ProductsService, private route: ActivatedRoute) {
-    this.id = this.route.snapshot.paramMap.get('id') || '1';
-  }
+  constructor (private productsService: ProductsService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.availableProducts = this.productsService.getNumberOfProducts();
-    this.product = this.productsService.getProductById(parseInt(this.id));
+    this.id = this.route.snapshot.paramMap.get('id') || '1';
+    this.productsService.getProducts().subscribe(products => {
+      this.product = products.find(product => product.id === +this.id) || products[0];
+    });
   }
 
   addToCart(product: Product): void {

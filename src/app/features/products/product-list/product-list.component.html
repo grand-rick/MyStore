@@ -1,6 +1,6 @@
 <div *ngFor="let product of products">
     <div class="product-item" >
-        <a routerLink="/products/{{product.id}}">
+        <a routerLink="{{product.id}}">
             <img src={{product.url}} alt={{product.name}}>
         </a>
         <p>{{product.name}}</p>
@@ -13,9 +13,3 @@
         </form>
     </div>
 </div>
-
-<!-- (inputChange)="onInputChange($event)" (addToCart)="addToCart($event) -->
-
-<!-- <div>
-    <product-item  [product]="product" "></product-item>
-</div> -->

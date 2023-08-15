@@ -9,8 +9,8 @@ import { ProductsService } from 'src/app/features/shared/data-access/services/pr
 })
 export class ProductListComponent implements OnInit {
   @Input() products: Product[] = [];
-  @Output() addToCart: EventEmitter<Product> = new EventEmitter();
-  @Output() inputChange: EventEmitter<number> = new EventEmitter();
+  @Output() addToCart = new EventEmitter<Product>();
+  @Output() inputChange = new EventEmitter<number>();
   availableProducts: number[] = [];
   selectedProducts: number = 0;
   

@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
   addToCart(product: Product): void {
     product.amount = this.amount;
     this.productsService.addProductToCart(product);
-    alert(`${product.name} has been added to cart`);
+    window.alert(`${product.name} has been added to cart`);
   }
 
   onInputChange(newValue: number) {

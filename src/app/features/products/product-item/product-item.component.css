@@ -1,8 +1,15 @@
-.product-item {
-    text-align: center;
+.product-item-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
 
 img {
-    width: 300px;
-    border: 2.5px #182848 solid;
+    width: 320px;
+}
+
+.child {
+    margin-left: 10px;
 }

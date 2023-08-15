@@ -7,6 +7,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductsService {
+  product: Product = {
+    id: 0,
+    name: '',
+    price: 0,
+    url: '',
+    description: '',
+    amount: 0
+  }
   cartProducts: Product[] = [];
 
   constructor(private http: HttpClient) { }
@@ -15,13 +23,21 @@ export class ProductsService {
     return this.http.get<Product[]>('assets/data.json');
   }
 
-  getProductById(id: number = 1): Product {
-    let product: Product = {} as Product;
-    this.getProducts().subscribe(products => {
-      product = products.find(p => p.id == id)!;
-    })
-    return product;
-  }
+  // getProductById(id: number): Product {
+  //   this.getProducts().subscribe(products => {
+  //     let product = this.product;
+
+  //     for (let i = 0, n = products.length; i < n; i++) {
+  //       if (products[i].id == id) {
+  //         product = products[i];
+  //         break;
+  //       }
+  //     }
+  //     this.product = product;
+      
+  //     return this.product;
+  //   })
+  // }
 
   getNumberOfProducts(): number[] {
     return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
