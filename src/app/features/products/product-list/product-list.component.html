@@ -1,5 +1,21 @@
-<div class="product-container">
-    <div class="product-index">
-        <app-product-item *ngFor="let product of myProducts" [product]="product" (inputChange)="onInputChange($event)" (addToCart)="addToCart($event)"></app-product-item>
+<div *ngFor="let product of products">
+    <div class="product-item" >
+        <a routerLink="/products/{{product.id}}">
+            <img src={{product.url}} alt={{product.name}}>
+        </a>
+        <p>{{product.name}}</p>
+        <p>${{product.price}}</p>
+        <form (ngSubmit)="onSubmitForm(product)">
+            <select name="selectedProducts" id="selectedProducts" [(ngModel)]="selectedProducts" (ngModelChange)="onInputChange($event)">
+                <option *ngFor="let item of availableProducts" value={{item}}>{{item}}</option>
+            </select> <br /> <br />
+            <button type="submit" class="btn btn-primary">Add to Cart</button>
+        </form>
     </div>
 </div>
+
+<!-- (inputChange)="onInputChange($event)" (addToCart)="addToCart($event) -->
+
+<!-- <div>
+    <product-item  [product]="product" "></product-item>
+</div> -->

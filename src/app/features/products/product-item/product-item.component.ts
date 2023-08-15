@@ -1,46 +1,32 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/features/shared/data-access/models/Product';
 import { ProductsService } from 'src/app/features/shared/data-access/services/products.service';
 
 @Component({
-  selector: 'app-product-item',
+  selector: 'product-item',
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent implements OnInit {
-  @Input() product: Product;
-  @Output() addToCart: EventEmitter<Product> = new EventEmitter();
-  @Output() inputChange: EventEmitter<number> = new EventEmitter();
+  id: string = '';
+  product!: Product;
   availableProducts: number[] = [];
   selectedProducts: number = 0;
-  
 
-  constructor (private productsService: ProductsService) {
-    this.product = {
-      id: 0,
-      name: '',
-      price: 0,
-      url: '',
-      description: '',
-      amount: 0
-    }
-}
+  constructor (private productsService: ProductsService, private route: ActivatedRoute) {
+    this.id = this.route.snapshot.paramMap.get('id') || '1';
+  }
 
   ngOnInit(): void {
     this.availableProducts = this.productsService.getNumberOfProducts();
+    this.product = this.productsService.getProductById(parseInt(this.id));
   }
 
-  // I set the current product using the ProductsService to allow sharing of data with the ProductItemDetail component
-  setProduct(product: Product): void {
-    this.productsService.setCurrentProduct(product);
-  }
-
-  onSubmitForm(product: Product): void {
-    this.addToCart.emit(product);
+  addToCart(product: Product): void {
+    product.amount = +this.selectedProducts;
+    this.productsService.addProductToCart(product);
     this.selectedProducts = 0;
-  }
-
-  onInputChange(newValue: number): void {
-    this.inputChange.emit(newValue);
+    alert(`${product.name} has been added to cart`);
   }
 }

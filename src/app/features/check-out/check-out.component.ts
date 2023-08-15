@@ -10,20 +10,17 @@ import { Router } from '@angular/router';
 })
 
 export class CheckOutComponent implements OnInit {
+  constructor (private productsService: ProductsService, private router: Router) {}
+
   totalPrice: number = this.productsService.getTotalPrice();
   cartProducts: Product[] = this.productsService.getCartProducts();
 
-  constructor (private productsService: ProductsService, private router: Router) {}
 
   checkOut(): void {
-    window.alert(`You have checked Out!`);
+    window.alert('You have checked Out!');
     this.productsService.clearCartProducts();
-    this.goToProductList();
+    this.router.navigate(['/products']);
   }
 
   ngOnInit(): void {}
-
-  goToProductList() {
-    this.router.navigateByUrl('');
-  }
 }

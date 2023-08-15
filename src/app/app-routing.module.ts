@@ -1,9 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductListComponent } from './features/products/product-list/product-list.component';
-import { CartComponent } from './features/cart/cart.component';
-import { ProductItemDetailComponent } from './features/products/product-item-detail/product-item-detail.component';
-import { CheckOutComponent } from './features/check-out/check-out.component';
 
 const routes: Routes = [
   {

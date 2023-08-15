@@ -7,41 +7,20 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductsService {
-  currentProduct: Product;
   cartProducts: Product[] = [];
 
-  constructor(private http: HttpClient) { 
-    this.currentProduct = {
-      id: 0,
-      name: '',
-      price: 0,
-      url: '',
-      description: '',
-      amount: 0
-    }
-  }
+  constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('assets/data.json');
   }
 
-  setCurrentProduct(selectedProduct: Product): Product {
-    this.currentProduct = {
-      id: 0,
-      name: '',
-      price: 0,
-      url: '',
-      description: '',
-      amount: 0
-    }; //resetting the current product value
-
-    this.currentProduct = selectedProduct;
-
-    return this.currentProduct;
-  }
-
-  getCurrentProduct(): Product {
-    return this.currentProduct;
+  getProductById(id: number = 1): Product {
+    let product: Product = {} as Product;
+    this.getProducts().subscribe(products => {
+      product = products.find(p => p.id == id)!;
+    })
+    return product;
   }
 
   getNumberOfProducts(): number[] {

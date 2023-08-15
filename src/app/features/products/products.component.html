@@ -1,1 +1,7 @@
-<p>products works!</p>
+<div class="product-container">
+    <div class="product-index">
+        <ng-container *ngIf="myProducts$ | async as myProducts">
+            <product-list [products]="myProducts"></product-list>
+        </ng-container>
+    </div>
+</div>
