@@ -7,14 +7,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductsService {
+  apiUrl: string = 'https://fakestoreapi.com/products';
+
   product: Product = {
     id: 0,
     name: '',
-    price: 0,
-    url: '',
     description: '',
-    amount: 0
-  }
+    price: 0,
+    amount: 0,
+    url: ''
+  };
+  
   cartProducts: Product[] = [];
 
   constructor(private http: HttpClient) { }
@@ -40,7 +43,7 @@ export class ProductsService {
   // }
 
   getNumberOfProducts(): number[] {
-    return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   }
 
   getCartProducts(): Product[] {
@@ -48,14 +51,13 @@ export class ProductsService {
   }
 
   addProductToCart(product: Product): Product[] {
-    for (let i = 0, n = this.cartProducts.length; i < n; i++) {
-      if (this.cartProducts[i].name === product.name) {
-        this.cartProducts[i].amount += product.amount;
-        return this.cartProducts;
+    const isProductInCart = this.cartProducts.some(p => {
+      if (p.name === product.name) {
+        p.amount += product.amount;
       }
-    }
-    this.cartProducts.unshift(product);
-    return this.cartProducts
+      return this.cartProducts.unshift(product);
+    });
+    return this.cartProducts;
   }
 
   editCartProduct(product: Product): Product[] {

@@ -1,4 +1,11 @@
-<nav class="nav-bar">
-    <a routerLink="/" >Product List</a>
-    <a routerLink="/cart">Cart</a>
-</nav>
+<nav mat-tab-nav-bar [backgroundColor]="'primary'" [tabPanel]="tabPanel">
+    <a mat-tab-link *ngFor="let link of links"
+        (click)="navigateTo(link)"
+        [active]="activeLink == link.name">
+        <mat-icon>{{link.icon}}</mat-icon>
+        {{link.name}}
+    </a>
+  </nav>
+<mat-tab-nav-panel #tabPanel>
+    <router-outlet></router-outlet>
+</mat-tab-nav-panel>
