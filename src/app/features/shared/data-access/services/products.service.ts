@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class ProductsService {
   apiUrl: string = 'https://fakestoreapi.com/products';
 
@@ -61,7 +63,7 @@ export class ProductsService {
     }
     
     this.cartProducts.unshift(product);
-    
+
     return this.cartProducts;
   }
 
