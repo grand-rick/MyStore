@@ -1,4 +1,4 @@
-<div *ngFor="let product of products">
+<!-- <div *ngFor="let product of products">
     <div class="product-item" >
         <a routerLink="{{product.id}}">
             <img src={{product.url}} alt={{product.name}}>
@@ -12,4 +12,18 @@
             <button type="submit" class="btn btn-primary">Add to Cart</button>
         </form>
     </div>
-</div>
+</div> -->
+<mat-card class="product-item" *ngFor="let product of products">
+    <mat-card-header>
+      <mat-card-title>{{product.name}}</mat-card-title>
+      <mat-card-subtitle>{{product.description}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image class="cursor-pointer" routerLink="/products/{{product.id}}" src="{{product.url}}" alt="{{product.name}}">
+    <mat-card-content>
+      This is the Card Content
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-flat-button routerLink="/products/{{product.id}}">Add to Cart</button>
+    </mat-card-actions>
+    <mat-card-footer>This is the footer</mat-card-footer>
+</mat-card>

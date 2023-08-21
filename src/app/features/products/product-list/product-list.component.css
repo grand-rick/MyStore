@@ -1,8 +1,8 @@
 .product-item {
   text-align: center;
+  margin: 10px;
 }
 
 img {
-  width: 300px;
-  border: 2.5px #182848 solid;
+  max-width: 300px;
 }

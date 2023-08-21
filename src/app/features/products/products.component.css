@@ -8,7 +8,8 @@
   .product-index {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: space-around;
+      align-items: center;
       max-width: 1024px;
       margin-bottom: 64px;
       padding: 10px;

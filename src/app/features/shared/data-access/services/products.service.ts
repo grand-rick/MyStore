@@ -51,12 +51,17 @@ export class ProductsService {
   }
 
   addProductToCart(product: Product): Product[] {
-    const isProductInCart = this.cartProducts.some(p => {
-      if (p.name === product.name) {
-        p.amount += product.amount;
-      }
-      return this.cartProducts.unshift(product);
-    });
+    /* The line `const productIndex = this.cartProducts.findIndex(p => p.name === product.name);` is
+    finding the index of a product in the `cartProducts` array based on its name. */
+    const productIndex = this.cartProducts.findIndex(p => p.name === product.name);
+
+    if (productIndex >= 0) {
+      this.cartProducts[productIndex].amount += product.amount;
+      return this.cartProducts;
+    }
+    
+    this.cartProducts.unshift(product);
+    
     return this.cartProducts;
   }
 

@@ -1,5 +1,5 @@
 <nav mat-tab-nav-bar [backgroundColor]="'primary'" [tabPanel]="tabPanel">
-    <a mat-tab-link *ngFor="let link of links"
+    <a mat-tab-link class="cursor-pointer" *ngFor="let link of links"
         (click)="navigateTo(link)"
         [active]="activeLink == link.name">
         <mat-icon>{{link.icon}}</mat-icon>
