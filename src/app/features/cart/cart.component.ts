@@ -49,7 +49,8 @@ export class CartComponent implements OnInit {
   }
 
   goToCheckOut() {
-    this.router.navigate(['/check-out']);
+    const cartIds = this.cartProducts.map(p => p.id).join('') as unknown as number;
+    this.router.navigate(['/check-out', cartIds]);
   }
 
   onInputChange(event: Event): number {
