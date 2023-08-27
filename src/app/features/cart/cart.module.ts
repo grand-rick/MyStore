@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { CartRoutingModule } from './cart-routing.module';
 import { CartComponent } from './cart.component';
 import { FormsModule } from '@angular/forms';
-import { CheckOutModule } from './check-out/check-out.module';
 
 
 @NgModule({
@@ -14,8 +13,7 @@ import { CheckOutModule } from './check-out/check-out.module';
   imports: [
     CommonModule,
     CartRoutingModule,
-    FormsModule,
-    // CheckOutModule
+    FormsModule
   ]
 })
 export class CartModule { }
