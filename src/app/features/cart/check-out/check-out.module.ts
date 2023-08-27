@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CheckOutRoutingModule } from './check-out-routing.module';
 import { CheckOutComponent } from './check-out.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { CheckOutComponent } from './check-out.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     CheckOutRoutingModule
   ]
 })

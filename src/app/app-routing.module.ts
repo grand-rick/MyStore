@@ -13,10 +13,6 @@ const routes: Routes = [
   { 
     path: 'cart',
     loadChildren: () => import('./features/cart/cart.module').then(m => m.CartModule)
-  },
-  {
-    path: 'check-out',
-    loadChildren: () => import('./features/check-out/check-out.module').then(m => m.CheckOutModule)
   }
 ];
 
