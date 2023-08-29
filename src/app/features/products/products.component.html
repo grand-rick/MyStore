@@ -1,0 +1,8 @@
+<div class="product-container">
+    <ng-container *ngIf="myProducts$ | async as myProducts; else noProductBlock">
+        <product-list class="product-index" [products]="myProducts['products']" (inputChange)="onInputChange($event)" (addToCart)="addToCart($event)" ></product-list>
+    </ng-container>
+    <ng-template #noProductBlock>
+        <div class="mat-headline-2">No product available</div>
+    </ng-template>
+</div>

@@ -1,0 +1,14 @@
+<mat-card class="product-item" *ngFor="let product of products">
+    <mat-card-header>
+      <mat-card-title>{{product.name}}</mat-card-title>
+      <!-- <mat-card-subtitle>{{product.description}}</mat-card-subtitle> -->
+    </mat-card-header>
+    <img mat-card-image class="cursor-pointer" routerLink="/products/{{product.id}}" src="{{product.url}}" alt="{{product.name}}">
+    <mat-card-content>
+      {{product.description}}
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" routerLink="/products/{{product.id}}">Add to Cart</button>
+    </mat-card-actions>
+    <mat-card-footer color="warn">Now 50% off</mat-card-footer>
+</mat-card>
