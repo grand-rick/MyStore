@@ -24,3 +24,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 >## Checkout the website at [My Store](https://my-store-final.vercel.app/).
+
+Made with ♥ by [Patrick Murimi](https://github.com/grand-rick001)
+
