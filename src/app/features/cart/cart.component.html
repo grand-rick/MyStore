@@ -7,7 +7,7 @@
                 <span class="cart-element-child" >${{product.price}}</span> <br />
                 <span class="cart-element-child" >{{product.description}}</span> <br />
                 <span class="cart-element-child" >Amount: <input type="number" name="amount" id="product.id" [value]="product.amount" [(ngModel)]="product.amount" (input)="product.amount=onInputChange($event)" min="0" max="10" /></span> <br />
-                <button class="btn btn-danger cart-element-child" (click)="removeCartProduct(product)">Remove</button> <br />
+                <button mat-raised-button class="cart-element-child" color="warn" (click)="removeCartProduct(product)">Remove</button> <br />
                 <a routerLink="/" class="cart-element-child">Back to Product List</a>
             </div>
         </div>
