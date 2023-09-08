@@ -14,8 +14,8 @@
 }
 
 .home-img {
-    width: 70%;
-    height: 70%;
+    width: 90vw;
+    height: 70vh;
     object-fit: cover;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -27,4 +27,16 @@
     color: #333;
     text-align: center;
     padding: 0 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .home-text {
+        font-size: .9rem;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .home-text {
+        font-size: .5rem;
+    }
 }
